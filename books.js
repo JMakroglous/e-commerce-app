@@ -23,6 +23,8 @@ function renderBooks(filter) {
       ${ratingsHTML(book.rating)}
     </div>
   <div class="book__price">
+    ${priceHTML(book.originalPrice, book.salePrice)}
+
     <span>$${book.originalPrice.toFixed(2)}</span>
   </div>
 </div>`;
@@ -30,6 +32,11 @@ function renderBooks(filter) {
   .join("");
 
 booksWrapper.innerHTML = booksHtml    
+}
+
+function priceHTML(originalPrice, salePrice) {
+   console.log(originalPrice, salePrice)
+//  <span class="book__price--normal">$59.95</span> $14.95
 }
 
 function ratingsHTML(rating) {
