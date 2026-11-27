@@ -35,8 +35,14 @@ booksWrapper.innerHTML = booksHtml
 }
 
 function priceHTML(originalPrice, salePrice) {
-   console.log(originalPrice, salePrice)
-//  <span class="book__price--normal">$59.95</span> $14.95
+  if (!salePrice) {
+    return`$${originalPrice.toFixed(2)}`
+  }
+  else {
+    return `<span class="book__price--normal">$${originalPrice}</span>$${salePrice}`
+  }
+  return 'there is a sale'
+
 }
 
 function ratingsHTML(rating) {
@@ -105,7 +111,7 @@ function getBooks() {
           title: "Rich Dad Poor Dad",
           url: "assets/book-3.jpeg",
           originalPrice: 70,
-          salePrice: 12.5,
+          salePrice: 12,
           rating: 5,
         },
         {
@@ -121,7 +127,7 @@ function getBooks() {
           title: "48 Laws of Power",
           url: "assets/book-5.jpeg",
           originalPrice: 38,
-          salePrice: 17.95,
+          salePrice: 17,
           rating: 4.5,
         },
         {
